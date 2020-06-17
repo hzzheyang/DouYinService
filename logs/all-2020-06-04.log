@@ -1,0 +1,153 @@
+[2020-06-04 14:10:48,639] [basehttp.py:136] [basehttp:log_message] [INFO]- "GET / HTTP/1.1" 200 16286
+[2020-06-04 14:10:48,746] [basehttp.py:136] [basehttp:log_message] [INFO]- "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[2020-06-04 14:10:48,894] [basehttp.py:136] [basehttp:log_message] [INFO]- "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2020-06-04 14:10:48,894] [basehttp.py:136] [basehttp:log_message] [INFO]- "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2020-06-04 14:10:48,895] [basehttp.py:136] [basehttp:log_message] [INFO]- "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2020-06-04 14:10:49,005] [log.py:228] [log:log_response] [WARNING]- Not Found: /favicon.ico
+[2020-06-04 14:10:49,005] [basehttp.py:136] [basehttp:log_message] [WARNING]- "GET /favicon.ico HTTP/1.1" 404 1979
+[2020-06-04 15:37:22,952] [log.py:228] [log:log_response] [WARNING]- Not Found: /
+[2020-06-04 15:37:22,953] [basehttp.py:136] [basehttp:log_message] [WARNING]- "GET / HTTP/1.1" 404 2085
+[2020-06-04 15:37:55,001] [log.py:228] [log:log_response] [WARNING]- Not Found: /
+[2020-06-04 15:37:55,001] [basehttp.py:136] [basehttp:log_message] [WARNING]- "GET / HTTP/1.1" 404 2084
+[2020-06-04 15:38:15,840] [log.py:228] [log:log_response] [WARNING]- Not Found: /author
+[2020-06-04 15:38:15,840] [basehttp.py:136] [basehttp:log_message] [WARNING]- "GET /author HTTP/1.1" 404 2120
+[2020-06-04 15:44:20,115] [log.py:228] [log:log_response] [WARNING]- Not Found: /author
+[2020-06-04 15:44:20,115] [basehttp.py:136] [basehttp:log_message] [WARNING]- "POST /author HTTP/1.1" 404 2121
+[2020-06-04 15:44:20,115] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:44:20,115] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:44:25,315] [log.py:228] [log:log_response] [WARNING]- Forbidden (CSRF cookie not set.): /author/
+[2020-06-04 15:44:25,315] [basehttp.py:136] [basehttp:log_message] [WARNING]- "POST /author/ HTTP/1.1" 403 2840
+[2020-06-04 15:44:25,316] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:44:25,316] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:45:28,539] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: Author() takes no arguments
+[2020-06-04 15:45:28,540] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59839
+[2020-06-04 15:45:28,540] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:45:28,540] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:48:58,191] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: Author() takes no arguments
+[2020-06-04 15:48:58,192] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59838
+[2020-06-04 15:48:58,192] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:48:58,192] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:51:05,569] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: AuthorView() takes no arguments
+[2020-06-04 15:51:05,570] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59879
+[2020-06-04 15:51:05,570] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:51:05,570] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:53:43,268] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: AuthorView() takes no arguments
+[2020-06-04 15:53:43,269] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59878
+[2020-06-04 15:53:43,269] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:53:43,270] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:54:01,332] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: AuthorView() takes no arguments
+[2020-06-04 15:54:01,332] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59879
+[2020-06-04 15:54:01,333] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:54:01,333] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:54:50,918] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: __init__() takes 1 positional argument but 2 were given
+[2020-06-04 15:54:50,919] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59974
+[2020-06-04 15:54:50,919] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:54:50,919] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:55:19,633] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: AuthorView() takes no arguments
+[2020-06-04 15:55:19,633] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59879
+[2020-06-04 15:55:19,633] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:55:19,634] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:55:32,738] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: __init__() takes 1 positional argument but 2 were given
+[2020-06-04 15:55:32,739] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59975
+[2020-06-04 15:55:32,739] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:55:32,739] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:56:06,712] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: __init__() takes 1 positional argument but 2 were given
+[2020-06-04 15:56:06,712] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59974
+[2020-06-04 15:56:06,713] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:56:06,713] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 15:58:39,607] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: __init__() takes 1 positional argument but 2 were given
+[2020-06-04 15:58:39,608] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59975
+[2020-06-04 15:58:39,608] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 15:58:39,608] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
+[2020-06-04 16:00:29,273] [log.py:228] [log:log_response] [ERROR]- Internal Server Error: /author/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: __init__() takes 1 positional argument but 2 were given
+[2020-06-04 16:00:29,279] [basehttp.py:136] [basehttp:log_message] [ERROR]- "POST /author/ HTTP/1.1" 500 59975
+[2020-06-04 16:00:29,279] [basehttp.py:136] [basehttp:log_message] [INFO]- code 400, message Bad request syntax ('{\t')
+[2020-06-04 16:00:29,280] [basehttp.py:136] [basehttp:log_message] [WARNING]- "{	" 400 -
