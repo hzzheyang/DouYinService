@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送消息</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <input id="msg" placeholder="输入要推送的消息">
+    <button onclick="sendmsg()">推送</button>
+<script>
+    function sendmsg() {
+        $.post("/send/",{msg:$("#msg").val()},function (result) {
+            if(result.msg=="success"){
+                alert("消息推送成功")
+            }
+        })
+    }
+</script>
+</body>
+</html>

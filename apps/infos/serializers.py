@@ -35,8 +35,7 @@ class AuthorSerializer(ModelSerializer):
         """
         author_uid = attrs.get('author_uid')
         if models.Author.objects.filter(author_uid=author_uid):
-            # raise ValidationError({'message': '作者已经存在'})
-            pass
+            raise ValidationError({'message': '作者已经存在'})
         return attrs
 
 

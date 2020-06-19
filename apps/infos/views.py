@@ -2,6 +2,10 @@ import json
 import time
 from pprint import pprint
 import urllib3
+from django.shortcuts import render, HttpResponse  # 引入HttpResponse
+from django.views import View
+from dwebsocket.decorators import accept_websocket  # 引入dwbsocket的accept_websocket装饰器
+import uuid
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin, CreateModelMixin, RetrieveModelMixin
@@ -10,7 +14,7 @@ from rest_framework.viewsets import ViewSetMixin
 from Tools.DouyinTools import DouYinTools
 from apps.infos import pagenations
 from . import models, serializers
-from django.core.paginator import Paginator
+
 urllib3.disable_warnings()
 
 
@@ -24,7 +28,7 @@ class SearchLocalAuthorView(ListModelMixin, RetrieveModelMixin,
     # 局部配置 过滤类 们（全局配置用DEFAULT_FILTER_BACKENDS）
     filter_backends = [SearchFilter, OrderingFilter]
     # 第三步：SearchFilter过滤类依赖的过滤条件 => 接口：/xx/?search=...
-    search_fields = ['author_name', 'author_gender', 'author_uid']  # 筛选字段
+    search_fields = ['author_name']  # 筛选字段
     # OrderingFilter过滤类依赖的过滤条件 -> 接口: /xx/?ordering=排序字段，排序字段前面加 - 等于反序，多字段用 ， 隔开
     ordering_fields = ['author_fans_num', 'author_favorited', 'author_aweme_count']
 
@@ -39,7 +43,6 @@ class SearchLocalAuthorView(ListModelMixin, RetrieveModelMixin,
     def post(self, request, *args, **kwargs):
         request_data = request.data
         data = self.get_fans_list(141, 10)
-        pprint(len(data))
         return Response({
             'status': 1,
             'msg': 'b'
@@ -216,3 +219,57 @@ class GetDouyinAuthorFansView(ListModelMixin, RetrieveModelMixin,
         })
 
 
+
+def to_sendmsg(request):
+    return render(request, 'sendmsg.html')
+
+
+def to_recmsg(request):
+    return render(request, 'recmsg.html')
+
+
+clients = {}  # 创建客户端列表，存储所有在线客户端
+
+
+# 允许接受ws请求
+@accept_websocket
+def link(request):
+    # 判断是不是ws请求
+    if request.is_websocket():
+        userid = str(uuid.uuid1())
+        # 判断是否有客户端发来消息，若有则进行处理，若发来“test”表示客户端与服务器建立链接成功
+        while True:
+            message = request.websocket.wait()
+            if not message:
+                break
+            else:
+                nike_id = json.loads(message)['userId']
+                # 保存客户端的ws对象，以便给客户端发送消息,每个客户端分配一个唯一标识
+                clients[nike_id] = request.websocket
+                pprint(clients)
+
+def send(request):
+    # 获取消息
+    msg=request.POST.get("msg")
+    # 获取到当前所有在线客户端，即clients
+    # 遍历给所有客户端推送消息
+    for client in clients:
+        clients[client].send(msg.encode('utf-8'))
+    return HttpResponse({"msg":"success"})
+
+
+class SendMessage(GenericAPIView):
+    def post(self, request, *args, **kwargs):
+        request_data = request.data
+        msg = request_data['msg']
+        phone_key = request_data['phone_key']
+        pprint('phone_key: {}'.format(phone_key))
+
+        for phone_local_key, send_obj in clients.items():
+            if str(phone_local_key) == str(phone_key):
+                send_obj.send(json.dumps({'status': 0, 'msg': msg}))
+
+        return Response({
+            'status': 'success',
+            'msg': {'code': 0, 'message': '发送成功'}
+        })

@@ -31,14 +31,11 @@ APPEND_SLASH = False
 ALLOWED_HOSTS = []
 
 
-# Application definition
-
 INSTALLED_APPS = [
     'apps.infos',
     'apps.users',
     'rest_framework',
     'gunicorn',  # 部署用
-    'channels',
     'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,7 +43,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dwebsocket',
+
 ]
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [('127.0.0.1', 6379)],
+#         },
+#         # 配置路由的路径
+#         # "ROUTING": "exmchannels.routing.channel_routing",
+#     },
+# }
+#
+# ASGI_APPLICATION = 'DouYinService.routing.application'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,15 +68,19 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # 'dwebsocket.middleware.WebSocketMiddleware',  # 为所有的URL提供websocket，如果只是单独的视图需要可以不选
+
 ]
+
+WEBSOCKET_ACCEPT_ALL = True
 
 ROOT_URLCONF = 'DouYinService.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,14 +93,13 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'DouYinService.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-
-
 
 DATABASES = {
     'default': {
